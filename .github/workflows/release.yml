@@ -7,7 +7,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '10.x'
-      - run: npm ci
+      - run: npm install
       - run: npm publish --access public
         if: github.event.action == 'published'
         env:
