@@ -12,4 +12,5 @@ jobs:
       - run: npm publish --access public
         if: github.event.action == 'published'
         env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
