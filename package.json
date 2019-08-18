@@ -1,5 +1,5 @@
 {
-  "name": "ghost-static-site-generator",
+  "name": "@judge2020/ghost-static-site-generator",
   "version": "1.0.1",
   "description": "A simple static site generator for ghost",
   "main": "index.js",
