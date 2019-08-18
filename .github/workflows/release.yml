@@ -4,11 +4,16 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - uses: actions/setup-node@v1
         with:
           node-version: '10.x'
       - run: npm ci
-      - run: npm publish --access public
+      - run: ./node_modules/.bin/npm-cli-login
         if: github.event.action == 'published'
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_USER: judge2020
+          NPM_PASS: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_EMAIL: ${{ secrets.NPM_EMAIL }}
+      - run: npm publish --access public
+        if: github.event.action == 'published'
