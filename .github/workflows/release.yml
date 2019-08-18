@@ -2,11 +2,12 @@ on: release
 name: npm release
 jobs:
   release:
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
-    - run: npm ci
-    - run: npm publish --access public
-      if: github.event.action == 'published'
-      env:
-        NPM_AUTH_TOKEN: {{ secrets.NPM_AUTH_TOKEN }}
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - run: npm ci
+      - run: npm publish --access public
+        if: github.event.action == 'published'
+        env:
+          NPM_AUTH_TOKEN: {{ secrets.NPM_AUTH_TOKEN }}
