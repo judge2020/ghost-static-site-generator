@@ -4,10 +4,11 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - uses: actions/setup-node@v1
         with:
           node-version: '10.x'
-      - run: npm install
+      - run: npm ci
       - run: npm publish --access public
         if: github.event.action == 'published'
         env:
