@@ -2,6 +2,7 @@ on: release
 name: npm release
 jobs:
   release:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v1
         with:
